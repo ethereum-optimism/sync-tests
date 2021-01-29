@@ -1,0 +1,16 @@
+{
+  "name": "sync-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@eth-optimism/hardhat-state-dumps": "^0.0.6",
+    "mocha": "^8.2.1"
+  }
+}
