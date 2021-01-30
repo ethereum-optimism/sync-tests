@@ -8,17 +8,15 @@ services:
       - docker-compose.env
     ports:
       - 8545:8545
+    environment:
+      - ETH1_ADDRESS_RESOLVER_ADDRESS=${ETH1_ADDRESS_RESOLVER_ADDRESS}
 
   l1_chain:
     image: ethereumoptimism/hardhat:${L1_CHAIN_TAG:-latest}
-    ports:
-      - 9545:9545
     env_file:
       - docker-compose.env
-    volumes:
-      - "${HARDHAT_INITIAL_STATE}:/mnt/initial-state.json"
-    environment:
-      - "INITIAL_STATE_PATH=/mnt/initial-state.json"
+    ports:
+      - 9545:9545
 
   deployer:
     image: ethereumoptimism/deployer:${DEPLOYER_TAG:-latest}
@@ -26,10 +24,3 @@ services:
       - docker-compose.env
     ports:
       - 8080:8080
-
-  test_suite:
-    image: ethereumoptimism/integration-tests:${INTEGRATION_TESTS_TAG:-master}
-    volumes:
-      - ./:/test-suite
-    working_dir: /test-suite
-    entrypoint: ["/opt/wait.sh", "yarn", "test"]

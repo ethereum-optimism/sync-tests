@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@eth-optimism/hardhat-state-dumps": "^0.0.6",
+    "@eth-optimism/provider": "^0.0.1-alpha.14",
     "mocha": "^8.2.1"
   }
 }
