@@ -21,7 +21,7 @@ function wait() {
             echo "Will wait $((RETRIES--)) more times for $1 to be up..."
 
             if [ "$RETRIES" -lt 0 ]; then
-                echo "Timeout waiting for layer one node at $1"
+                echo "Timeout waiting for $1"
                 docker-compose down -v
                 exit 1
             fi
